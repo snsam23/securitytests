@@ -71,7 +71,7 @@ jobs:
       with:
         languages: ${{ matrix.language }}
         build-mode: ${{ matrix.build-mode }}
-        query-filters:
+      query-filters:
           - exclude:
             id: js/missing-rate-limiting
         # If you wish to specify custom queries, you can do so here or in a config file.
