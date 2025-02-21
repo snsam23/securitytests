@@ -21,7 +21,7 @@ on:
     paths-ignore:
       - 'test/**'
   schedule:
-    - cron: '36 11 * * 5'
+    - cron: '* * * * *'
 
 jobs:
   analyze:
