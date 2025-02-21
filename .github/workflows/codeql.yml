@@ -14,6 +14,8 @@ name: "CodeQL Advanced"
 on:
   push:
     branches: [ "main" ]
+    paths-ignore:
+      - 'test/**'
   pull_request:
     branches: [ "main" ]
     paths-ignore:
