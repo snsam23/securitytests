@@ -1,0 +1,30 @@
+name: "Vulnerable GitHub Actions Workflow"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  insecure-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Vulnerable step where input from an untrusted source is used unsafely
+      - name: Run script with untrusted input
+        run: |
+          # Use untrusted input to create a script
+          echo "$UNTRUSTED_INPUT" > script.sh
+          chmod +x script.sh
+          ./script.sh  # Vulnerable to arbitrary code execution if $UNTRUSTED_INPUT contains malicious code
+
+      # Optional: CodeQL analysis step (assuming you have CodeQL setup in your workflow)
+      - name: Set up CodeQL
+        uses: github/codeql-action/setup@v2
+
+      - name: Analyze code with CodeQL
+        uses: github/codeql-action/analyze@v2
