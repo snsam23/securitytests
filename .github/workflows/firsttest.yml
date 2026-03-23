@@ -8,6 +8,9 @@ on:
 jobs:
   burp-scan:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # opt in to Node 24 now
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -17,4 +20,4 @@ jobs:
         with:
           enterprise-server-url: https://2226816d.portswigger.cloud
           enterprise-api-key: jqc5HLCO9nNAPjnlnXl92zuwkOepL0jC
-          start-url: "https://ginandjuice.shop"
+          start-url: "https://vulnerable-website.com/"
