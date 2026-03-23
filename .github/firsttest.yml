@@ -1,0 +1,7 @@
+steps:
+  - name: Run CI-driven scan Action Step
+    uses: PortSwigger/ci-driven-scan-github-action@main
+    with:
+      enterprise-server-url: https://2226816d.portswigger.cloud
+      enterprise-api-key: jqc5HLCO9nNAPjnlnXl92zuwkOepL0jC
+      start-url: 'https://ginandjuice.shop
