@@ -1,0 +1,19 @@
+# .burp/burp_config.yml
+site:
+  scope:
+    startUrls:
+      - ${BURP_START_URLS}
+    includeInScopeUrlPrefixes:
+      - ${BURP_SITE_IN_SCOPE_URL_PREFIXES:-${BURP_START_URLS}}
+    excludeFromScopeUrlPrefixes:
+      - ${BURP_SITE_OUT_OF_SCOPE_URL_PREFIXES:-}
+scan:
+  configurations:
+    # Built-in config names or custom config files; can be a list
+    - ${BURP_SCAN_CONFIGURATIONS:-Balanced}
+auth:
+  # Example: simple cookie/header-based auth if needed
+  type: auto
+report:
+  filePath: ${BURP_REPORT_FILE_PATH:-burp_junit_report.xml}
+  format: JUnit
