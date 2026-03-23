@@ -1,7 +1,20 @@
-steps:
-  - name: Run CI-driven scan Action Step
-    uses: PortSwigger/ci-driven-scan-github-action@main
-    with:
-      enterprise-server-url: https://2226816d.portswigger.cloud
-      enterprise-api-key: jqc5HLCO9nNAPjnlnXl92zuwkOepL0jC
-      start-url: 'https://ginandjuice.shop
+name: Burp CI-driven scan test
+
+on:
+  workflow_dispatch:     # allows manual runs
+  push:                  # optional – runs on pushes to the repo
+    branches: [ main ]
+
+jobs:
+  burp-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run CI-driven scan Action Step
+        uses: PortSwigger/ci-driven-scan-github-action@main
+        with:
+          enterprise-server-url: https://2226816d.portswigger.cloud
+          enterprise-api-key: jqc5HLCO9nNAPjnlnXl92zuwkOepL0jC
+          start-url: "https://ginandjuice.shop"
